@@ -14,6 +14,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.yh.util.CrawlerUtils;
 import com.yh.zhihu.model.ZhiHuUserBean;
 import com.yh.zhihu.util.BloomFilter;
 import com.yh.zhihu.util.GetFromUrl;
@@ -116,7 +117,8 @@ public class ZhiHuSpriderService {
                 Element userUrlContent = null;
 
                 //解析网页
-                userUrlContent = Jsoup.parse(GetFromUrl.getFromUrl(tmp));
+                String context = CrawlerUtils.getUrlContent(tmp, false);
+                userUrlContent = Jsoup.parse(context);
                 String userContent = userUrlContent.text();
                 ZhiHuUserBean user = new ZhiHuUserBean();
 
