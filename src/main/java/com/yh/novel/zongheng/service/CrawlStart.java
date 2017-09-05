@@ -31,6 +31,15 @@ public class CrawlStart {
 	@Autowired
 	private ZonghengDao zonghengDao;
 	
+	@Autowired
+	private UpdateListThread updateListThread;
+	
+	@Autowired
+	private IntroPageThread introPageThread;
+	
+	@Autowired
+	private ReadPageThread readPageThread;
+	
 	/**
 	 * @Author:lulei  
 	 * @Description:启动更新列表页采集线程
@@ -48,8 +57,8 @@ public class CrawlStart {
 			if (info.getUrl() == null || "".equals(info.getUrl())) {
 				continue;
 			}
-			UpdateListThread thread = new UpdateListThread(info.getInfo(), info.getUrl(), info.getFrequency());
-			thread.start();
+			updateListThread.setParam(info.getInfo(), info.getUrl(), info.getFrequency());
+			updateListThread.start();
 		}
 	}
 	
@@ -63,8 +72,8 @@ public class CrawlStart {
 		}
 		booleanCrawlIntro = true;
 		for (int i = 0; i < crawlIntroThreadNum; i++) {
-			IntroPageThread thread = new IntroPageThread("novel info page " + i);
-			thread.start();
+			introPageThread.setName("novel info page " + i);
+			introPageThread.start();
 		}
 	}
 	
@@ -78,8 +87,8 @@ public class CrawlStart {
 		}
 		booleanCrawlRead = true;
 		for (int i = 0; i < crawlReadThreadNum; i++) {
-			ReadPageThread thread = new ReadPageThread("novel read page " + i);
-			thread.start();
+			readPageThread.setName("novel read page " + i);
+			readPageThread.start();
 		}
 	}
 

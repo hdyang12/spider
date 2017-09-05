@@ -22,8 +22,9 @@ public class IntroPageThread extends Thread{
 	@Autowired
 	private ZonghengDao zonghengDao;
 	
-	public IntroPageThread(String name) {
-		super(name);
+	public IntroPageThread() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -61,7 +62,8 @@ public class IntroPageThread extends Thread{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub  
-		IntroPageThread thread = new IntroPageThread("novelinfo");
+		IntroPageThread thread = new IntroPageThread();
+		thread.setName("novelinfo");
 		thread.start();
 	}
 

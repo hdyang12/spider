@@ -21,13 +21,18 @@ public class UpdateListThread extends Thread{
 	@Autowired
 	private ZonghengDao zonghengDao;
 	
+	public UpdateListThread() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	* @param name 线程名
 	* @param url 更新列表页url
 	* @param frequency 采集频率
 	 */
-	public UpdateListThread(String name, String url, int frequency) {
-		super(name);
+	public void setParam(String name, String url, int frequency) {
+		super.setName(name);
 		this.url = url;
 		this.frequency = frequency;
 	}
@@ -52,7 +57,8 @@ public class UpdateListThread extends Thread{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub  
-		UpdateListThread thread = new UpdateListThread("lll", "http://book.zongheng.com/store/c0/c0/b9/u0/p1/v0/s9/t0/ALL.html", 30);
+		UpdateListThread thread = new UpdateListThread();
+		thread.setParam("lll", "http://book.zongheng.com/store/c0/c0/b9/u0/p1/v0/s9/t0/ALL.html", 30);
 		thread.start();
 	}
 

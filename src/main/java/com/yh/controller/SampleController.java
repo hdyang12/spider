@@ -1,5 +1,6 @@
 package com.yh.controller;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 //@SpringBootApplication	//组合注解;包含@EnableAutoConfiguration;@Configurable;@ComponentScan
 @ComponentScan("com.yh")
+@MapperScan("com.yh")
 @EnableAutoConfiguration//让SpringBoot根据类路径中的jar包依赖为当前项目进行自动配置
 @EnableMongoRepositories(value= {"com.yh.mongo"})
 public class SampleController {

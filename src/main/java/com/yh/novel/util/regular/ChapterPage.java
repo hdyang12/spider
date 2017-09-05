@@ -7,15 +7,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
-
 import com.yh.novel.util.JsonUtil;
 import com.yh.novel.util.ParseMD5;
 import com.yh.novel.util.RegexUtil;
 import com.yh.novel.zongheng.dao.ZonghengDao;
 import com.yh.novel.zongheng.model.NovelChapterModel;
 
-@Component
 public class ChapterPage extends CrawlBase{
 	private String url;
 	//请求头信息
@@ -32,6 +29,11 @@ public class ChapterPage extends CrawlBase{
 		params.put("Host", "book.zongheng.com");
 	}
 	
+	public ChapterPage() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public ChapterPage(String url) {
 		readPageByGet(url, params, "utf-8");
 		this.url = url;

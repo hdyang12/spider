@@ -20,10 +20,10 @@ public class ReadPageThread extends Thread{
 	@Autowired
 	private ZonghengDao zonghengDao;
 	
-	public ReadPageThread (String name) {
-		super(name);
+	public ReadPageThread() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	
 
 	@Override
 	public void run() {
@@ -65,7 +65,8 @@ public class ReadPageThread extends Thread{
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub  
-		ReadPageThread thread = new ReadPageThread("readPage");
+		ReadPageThread thread = new ReadPageThread();
+		thread.setName("readPage");
 		thread.start();
 	}
 

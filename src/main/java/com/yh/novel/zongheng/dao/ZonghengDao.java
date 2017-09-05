@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.yh.novel.util.ParseMD5;
+import com.yh.novel.zongheng.dao.mybatis.InfoMapper;
 import com.yh.novel.zongheng.model.CrawlListInfo;
 import com.yh.novel.zongheng.model.NovelChapterModel;
 import com.yh.novel.zongheng.model.NovelInfoModel;
